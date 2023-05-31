@@ -1,1 +1,50 @@
-<p>header works!</p>
+<header class="d-flex bg-white p-2 align-items-center position-relative">
+  <img src="./assets/icons/logo-black.svg" alt="logo" />
+  <h1 class="m-0 ms-1 fs-6 fw-bold">Easy Media</h1>
+  <img
+    [src]="menu ? './assets/icons/close.svg' : './assets/icons/menu.svg'"
+    alt="menu"
+    class="ms-auto"
+    (click)="menu = !menu"
+  />
+  <div
+    class="position-absolute end-0 bottom-0 ms-auto w-50 bg-white shadow rounded-4 translate-y-100 text-dark"
+    *ngIf="menu"
+  >
+    <h3 class="m-0 mx-3 mt-2 border-bottom fs-6 fw-bold">Nombre</h3>
+    <div class="list-group rounded-4">
+      <a
+        class="list-group-item border-0 list-group-item-action"
+        [routerLink]="['/post/create']"
+        (click)="menu = false"
+      >
+        <img src="./assets/icons/edit.svg" alt="edit" class="me-2" />
+        <small>Create Publication</small>
+      </a>
+      <a
+        class="list-group-item border-0 list-group-item-action"
+        [routerLink]="['/post']"
+        (click)="menu = false"
+      >
+        <img src="./assets/icons/send.svg" alt="send" class="me-2" />
+        <small>My Publications</small>
+      </a>
+      <a
+        class="list-group-item border-0 list-group-item-action"
+        [routerLink]="['/post/all']"
+        (click)="menu = false"
+      >
+        <img src="./assets/icons/message.svg" alt="message" class="me-2" />
+        <small>See All Publications</small>
+      </a>
+      <li
+        class="list-group-item border-0 list-group-item-action bg-light bg-opacity-50"
+        [routerLink]="['/auth']"
+        (click)="logout()"
+      >
+        <img src="./assets/icons/logout.svg" alt="logout" class="me-2" />
+        <small>Logout</small>
+      </li>
+    </div>
+  </div>
+</header>
