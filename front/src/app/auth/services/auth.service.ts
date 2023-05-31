@@ -30,6 +30,15 @@ export class AuthService {
   }
 
   login(user: LoginInterface): boolean {
+    let users: SingupInterface[] | string | null =
+      localStorage.getItem('users');
+    if (users) {
+      users = JSON.parse(users) as SingupInterface[];
+      const result = users.filter(
+        (login) => login.email == user.email && login.password === user.password
+      );
+      if (result.length < 1) return false;
+    }
     this.setToken();
     return true;
   }
