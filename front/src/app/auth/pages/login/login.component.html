@@ -3,13 +3,18 @@
 
   <app-header text="Sing In"></app-header>
 
-  <main class="d-grid gap-1 col-10 mx-auto my-3">
+  <form
+    class="d-grid gap-1 col-10 mx-auto my-3"
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+  >
     <div class="d-flex flex-column align-items-center">
       <label for="email" class="w-100 fw-bold text-dark">Email</label>
       <input
         type="text"
         id="email"
         class="w-100 bg-transparent border-0 border-bottom border-white text-white"
+        formControlName="email"
         placeholder="example@email.com"
       />
       <p class="w-100 m-0 fs-10 fw-semibold text-danger">
@@ -23,6 +28,7 @@
         [type]="typePassword ? 'password' : 'text'"
         id="password"
         class="password w-100 bg-transparent border-0 border-bottom border-white text-white"
+        formControlName="password"
         placeholder="●●●●●●"
       />
       <img
@@ -33,13 +39,16 @@
       />
     </div>
 
-    <button class="btn btn-gradient border-0 fs-5 rounded-pill mt-3">
+    <button
+      type="submit"
+      class="btn btn-gradient border-0 fs-5 rounded-pill mt-3"
+    >
       SING IN
     </button>
     <p class="m-0 fs-10 fw-semibold text-danger text-center">
       Please provide a valid email
     </p>
-  </main>
+  </form>
 
   <footer class="col-10 fs-10 fw-semibold text-light text-end">
     Don’t have an account?
