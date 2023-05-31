@@ -3,14 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class RegisterComponent implements OnInit {
+  typePassword1: boolean = true;
+  typePassword2: boolean = true;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
